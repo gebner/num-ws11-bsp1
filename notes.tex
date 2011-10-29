@@ -34,6 +34,21 @@ Somit ist \(|y'(t)-p'(t)| = O(h^6)\), wenn nur \(l+n \geq 5\).  Für \(l=2\) und
 
 \section{Experimenteller Teil}
 
+Wir haben unser Programm an mehreren Funktionen getestet.  Als erstes (siehe
+\ref{fig:exp}) haben wir ein relativ gut-konditioniertes Problem gewählt,
+nämlich die Exponentialfunktion an der Stelle \(2\), hier erwarteten wir eine
+schnelle Konvergenz.  Als zweites (\ref{fig:scaledsin}) haben wir eine Funktion
+gesucht, bei der die Konvergenz erst mit sehr kleinen Schrittweiten einsetzt,
+entschieden haben wir uns für einen skalierten Sinus, nämlich (\(x \mapsto
+10^{-5}\, \sin(10^5\, x)\)).
+
+Bei der Exponentialfunktion beobachteten wir tatsächlich eine schnelle
+Konvergenz (bei \(h=2^{-9}\) haben wir einen relativen Fehler von
+\verb|1.3222e-15|), danach setzen die Rechenfehler ein.  Beim skalierten Sinus
+haben wir erwartungsgemäß lange einen großen Fehler (bis \(2^{-15}\)), danach
+konvergiert jedoch die Approximation mit der erwarteten Geschwindigkeit und
+erreicht den kleinsten Fehler (\verb|1.1109e-16|) bei \(h=2^{-26}\).
+
 \begin{figure}[!htb]
 \centering
 \includegraphics{fig_exp.pdf}
@@ -49,6 +64,9 @@ Somit ist \(|y'(t)-p'(t)| = O(h^6)\), wenn nur \(l+n \geq 5\).  Für \(l=2\) und
 \end{figure}
 
 \subsection{Betriebsmittel}
+
+Die Berechnungen wurden mit double precision unter Octave 3.2.4 und Ubuntu
+Oneiric (amd64) auf einem AMD Phenom II X4 965 Prozessor durchgeführt.
 
 \subsubsection{Quelltext}
 
