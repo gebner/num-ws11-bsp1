@@ -1,0 +1,45 @@
+\documentclass{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{parskip}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Numerische Mathematik UE -- 1. Projekt, Teilprojekt 3}
+\author{Gabriel Ebner, Johannes Hafner}
+\maketitle
+
+\section{Theoretischer Teil}
+
+Um den Fehler bei der numerischen Differentiation durch Interpolation mit einem
+Polynom zu bestimmen, wenden wir Satz 4.3 aus der Vorlesung an:
+
+\begin{eqnarray*}
+|y'(t) - p'(t)| &\leq& 1 \cdot
+    \frac{\|f^{(l+n+2)}\|_\infty}{(l+n+1)!}\; ((t+nh) - (t-lh))^{l+n+1} \\
+  &\leq& \|f^{(l+n+2)}\|_\infty\; \frac{(l+n)^{l+n+1}}{(l+n+1)!}\; h^{l+n+1}
+\end{eqnarray*}
+
+Somit ist \(|y'(t)-p'(t)| = O(h^6)\), wenn nur \(l+n \geq 5\).  Für \(l=2\) und
+\(n=3\) erhalten wir konkret \(|y'(t)-p'(t)| \leq 22\; \|f^{(7)}\|_\infty\; h^6\).
+
+\section{Experimenteller Teil}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_exp.pdf}
+\caption{\(e^x\) differenziert an der Stelle \(x=2\)}
+\label{fig:exp}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_scaledsin.pdf}
+\caption{\(10^{-5}\, \sin(10^5\, x)\) differenziert an der Stelle \(x=1\)}
+\label{fig:scaledsin}
+\end{figure}
+
+\end{document}
