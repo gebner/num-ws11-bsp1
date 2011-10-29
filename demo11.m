@@ -12,9 +12,9 @@ for j = 1:length(err),
   end
 end
 
-loglog(1./h, abs(err(1,:)), plotopts)
+semilogy(-log2(h), abs(err(1,:)), plotopts)
 
-xlabel '1/h'
+xlabel '-log2(h)'
 if (fprime_at_t == 0)
   ylabel 'abs. error'
 else
