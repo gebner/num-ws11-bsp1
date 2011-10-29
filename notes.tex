@@ -6,6 +6,12 @@
 \usepackage{parskip}
 \usepackage{graphicx}
 
+\usepackage{listings}
+\lstset{language=Octave, basicstyle=\tt, tabsize=8,
+  breaklines=true, caption=\lstname, captionpos=b}
+\DeclareFontShape{OT1}{cmtt}{bx}{n}
+{<5><6><7><8><9><10><10.95><12><14.4><17.28><20.74><24.88>cmttb10}{}
+
 \begin{document}
 
 \title{Numerische Mathematik UE -- 1. Projekt, Teilprojekt 3}
@@ -41,5 +47,11 @@ Somit ist \(|y'(t)-p'(t)| = O(h^6)\), wenn nur \(l+n \geq 5\).  Für \(l=2\) und
 \caption{\(10^{-5}\, \sin(10^5\, x)\) differenziert an der Stelle \(x=1\)}
 \label{fig:scaledsin}
 \end{figure}
+
+\subsection{Betriebsmittel}
+
+\subsubsection{Quelltext}
+
+\lstinputlisting{nd.m}
 
 \end{document}
