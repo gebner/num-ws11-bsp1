@@ -25,12 +25,12 @@ Polynom zu bestimmen, wenden wir Satz 4.3 aus der Vorlesung an:
 
 \begin{eqnarray*}
 |y'(t) - p'(t)| &\leq& 1 \cdot
-    \frac{\|f^{(l+n+2)}\|_\infty}{(l+n+1)!}\; ((t+nh) - (t-lh))^{l+n+1} \\
-  &\leq& \|f^{(l+n+2)}\|_\infty\; \frac{(l+n)^{l+n+1}}{(l+n+1)!}\; h^{l+n+1}
+    \frac{\|f^{(l+n+1)}\|_\infty}{(l+n)!}\; ((t+nh) - (t-lh))^{l+n} \\
+  &\leq& \|f^{(l+n+1)}\|_\infty\; \frac{(l+n)^{l+n}}{(l+n)!}\; h^{l+n}
 \end{eqnarray*}
 
-Somit ist \(|y'(t)-p'(t)| = O(h^6)\), wenn nur \(l+n \geq 5\).  Für \(l=2\) und
-\(n=3\) erhalten wir konkret \(|y'(t)-p'(t)| \leq 22\; \|f^{(7)}\|_\infty\; h^6\).
+Somit ist \(|y'(t)-p'(t)| = O(h^6)\), wenn nur \(l+n \geq 6\).  Für \(l=n=3\)
+erhalten wir konkret \(|y'(t)-p'(t)| \leq 65\; \|f^{(7)}\|_\infty\; h^6\).
 
 \section{Experimenteller Teil}
 
@@ -39,15 +39,15 @@ Wir haben unser Programm an mehreren Funktionen getestet.  Als erstes (siehe
 nämlich die Exponentialfunktion an der Stelle \(2\), hier erwarteten wir eine
 schnelle Konvergenz.  Als zweites (\ref{fig:scaledsin}) haben wir eine Funktion
 gesucht, bei der die Konvergenz erst mit sehr kleinen Schrittweiten einsetzt,
-entschieden haben wir uns für einen skalierten Sinus, nämlich (\(x \mapsto
-10^{-5}\, \sin(10^5\, x)\)).
+entschieden haben wir uns für einen skalierten Sinus, nämlich \(x \mapsto
+10^{-5}\, \sin(10^5\, x)\) an der Stelle \(1\).
 
 Bei der Exponentialfunktion beobachteten wir tatsächlich eine schnelle
-Konvergenz (bei \(h=2^{-9}\) haben wir einen relativen Fehler von
-\verb|1.3222e-15|), danach setzen die Rechenfehler ein.  Beim skalierten Sinus
+Konvergenz (bei \(h=2^{-7}\) haben wir einen relativen Fehler von
+\verb|4.0869e-15|), danach setzen die Rechenfehler ein.  Beim skalierten Sinus
 haben wir erwartungsgemäß lange einen großen Fehler (bis \(2^{-15}\)), danach
-konvergiert jedoch die Approximation mit der erwarteten Geschwindigkeit und
-erreicht den kleinsten Fehler (\verb|1.1109e-16|) bei \(h=2^{-26}\).
+konvergiert jedoch die Approximation mit der erwarteten Geschwindig\-keit und
+erreicht den kleinsten Fehler (\verb|1.1109e-16|) bei \(h=2^{-25}\).
 
 \begin{figure}[!htb]
 \centering
