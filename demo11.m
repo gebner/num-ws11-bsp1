@@ -1,6 +1,6 @@
 function demo11(f, t, fprime_at_t, l, n, plotopts)
 
-h = 2.^-(0:40);
+h = 2.^-(0:60);
 
 err = zeros(size(h));
 for j = 1:length(err),

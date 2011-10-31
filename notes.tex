@@ -42,13 +42,6 @@ haben wir eine Funktion gesucht, bei der die Konvergenz erst mit sehr kleinen
 Schrittweiten einsetzt, entschieden haben wir uns für einen skalierten Sinus,
 nämlich \(x \mapsto 10^{-5}\, \sin(10^5\, x)\) an der Stelle \(1\).
 
-Bei der Exponentialfunktion beobachteten wir tatsächlich eine schnelle
-Konvergenz (bei \(h=2^{-7}\) haben wir einen relativen Fehler von
-\verb|4.0869e-15|), danach setzen die Rechenfehler ein.  Beim skalierten Sinus
-haben wir erwartungsgemäß lange einen großen Fehler (bis \(2^{-15}\)), danach
-konvergiert jedoch die Approximation mit der erwarteten Geschwindig\-keit und
-erreicht den kleinsten Fehler (\verb|1.1109e-16|) bei \(h=2^{-25}\).
-
 \begin{figure}[!htb]
 \centering
 \includegraphics{fig_exp.pdf}
@@ -60,6 +53,13 @@ erreicht den kleinsten Fehler (\verb|1.1109e-16|) bei \(h=2^{-25}\).
 \centering
 \includegraphics{fig_scaledsin.pdf}
 \caption{\(10^{-5}\, \sin(10^5\, x)\) differenziert an der Stelle \(x=1\)}
+\label{fig:scaledsin}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_lin.pdf}
+\caption{\(\frac x {10} + 5\) differenziert an der Stelle \(x=1\)}
 \label{fig:scaledsin}
 \end{figure}
 

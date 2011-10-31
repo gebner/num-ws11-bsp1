@@ -1,7 +1,7 @@
 .PHONY: all clean
 
 EPSFIGS = $(addprefix fig_, $(addsuffix .eps, \
-	exp scaledsin))
+	exp scaledsin lin poly3 poly6))
 PDFFIGS = $(subst .eps,.pdf,$(EPSFIGS))
 
 all: notes.pdf
