@@ -1,18 +1,13 @@
-function demo11(f, t, fprime_at_t, l, n, plotopts)
+function demo11(d, fprime_at_t, plotopts)
 
 h = 2.^-(0:60);
 
 err = zeros(size(h));
 for j = 1:length(err),
-  d = nd(f, t, h(j), l, n);
-  if (fprime_at_t == 0)
-    err(j) = abs(d);
-  else
-    err(j) = abs((d - fprime_at_t) / fprime_at_t);
-  end
+  err(j) = relerr(d(h(j)), fprime_at_t);
 end
 
-semilogy(-log2(h), abs(err(1,:)), plotopts)
+semilogy(-log2(h), err, plotopts)
 
 xlabel '-log2(h)'
 if (fprime_at_t == 0)
