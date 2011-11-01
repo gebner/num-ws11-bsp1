@@ -33,35 +33,90 @@ Somit ist \(|y'(t)-p'(t)| = O(h^6)\), wenn nur \(l+n \geq 6\).  Für \(l=n=3\)
 erhalten wir konkret \(|y'(t)-p'(t)| \leq 65\; \|f^{(7)}\|_\infty\; h^6\).
 
 \section{Experimenteller Teil}
+\subsection{Test der Funktion}
 
 Wir haben unser Programm an mehreren Funktionen getestet.  Als erstes (siehe
 Abbildung \ref{fig:exp}) haben wir ein relativ gut-konditioniertes Problem
 gewählt, nämlich die Exponentialfunktion an der Stelle \(2\), hier erwarteten
-wir eine schnelle Konvergenz.  Als zweites (Abbildung \ref{fig:scaledsin})
+wir eine schnelle Konvergenz.
+Die Funktionen l=n wurde von 1 bis 5 gewählt.
+Zunächst fächern sich die Fehlerferläufe auf, da die Konvergenzordnung jeweils \(O(h^{(n+l)})\) beträgt , bis die Rechenfehler die Verfahrensfehler überwiegen. In diesen Fällen haben alle Funktionen ähnliche Fehler.
+Ab n=l=3 wird eine Genauigkeit von \(10^{-15}\) erreicht.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_exp_internal.pdf}
+\caption{\(e^x\) differenziert an der Stelle \(x=2\)}
+\label{fig:exp}
+\end{figure}
+
+
+Im Falle einer Polynomiellen Funktion (Abbildungen \ref{fig:lin} und \ref{fig:poly6}) wird sofort eine Genauigkeit von \(10^{-15}\) erreicht, wenn die Funktion durch ein Polynom von ausreichendem Grad aproximiert wird.
+Dadurch kann im Falle der linearen Funktion der Rechenfehler gut beobachtet werden.
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_lin_internal.pdf}
+\caption{\(\frac x {10} + 5\) differenziert an der Stelle \(x=1\)}
+\label{fig:lin}
+\end{figure}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_poly6_internal.pdf}
+\caption{\(x^6+x^5+x^4+x^3+x^2+x^1+x+1\) differenziert an der Stelle \(x=2\)}
+\label{fig:poly6}
+\end{figure}
+
+
+Zu guter letzt(Abbildung \ref{fig:scaledsin})
 haben wir eine Funktion gesucht, bei der die Konvergenz erst mit sehr kleinen
 Schrittweiten einsetzt, entschieden haben wir uns für einen skalierten Sinus,
 nämlich \(x \mapsto 10^{-5}\, \sin(10^5\, x)\) an der Stelle \(1\).
+Erst wenn die Schreittweite kleiner als die Periode ist, setzt eine sinnvolle Konvergenz ein. In diesem Fall wird auch nur eine Genauigkeit von \(10^{-6}\) erreicht.
+
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_scaledsin_internal.pdf}
+\caption{\(10^{-5}\, \sin(10^5\, x)\) differenziert an der Stelle \(x=1\)}
+\label{fig:scaledsin}
+\end{figure}
+
+
+\subsection{Vergleich mit den anderen Teilprojekten}
+
+Anhand der Exponentialfunktion (Abbildung \ref{fig:exp_ns}) zeigt sich der Unterschied in den Koeffizienten bei der Konvergenz.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics{fig_exp_noscale.pdf}
+\caption{\(e^x\) ohne Skalierung}
+\label{fig:exp_ns}
+\end{figure}
+
+Da bei den verschiedenen Konvergenzverfahren \(h\), \(2h\), \(3h\) bzw. \(h\), \(\frac h 2\), \(\frac h 4\),\dots
+verwendet wird, haben wir uns entschieden, zur besseren Vergleichbarkeit eine Skalierung der Schrittweiten durchzuführen.
+Dabei wurde so umskaliert, das jeweils die Entfernung zwischen dem Punkt, an dem differenziert wird, und dem nächstgelegenen Punkt h beträgt.
+Dadurch entsteht die Abbildung \ref{fig:exp_s}.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics{fig_exp.pdf}
-\caption{\(e^x\) differenziert an der Stelle \(x=2\)}
-\label{fig:exp}
+\caption{\(e^x\) mit Skalierungs}
+\label{fig:exp_s}
 \end{figure}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics{fig_scaledsin.pdf}
-\caption{\(10^{-5}\, \sin(10^5\, x)\) differenziert an der Stelle \(x=1\)}
-\label{fig:scaledsin}
+\caption{\(10^{-5}\, \sin(10^5\, x)\) mit Skalierungs}
+\label{fig:sin_s}
 \end{figure}
 
-\begin{figure}[!htb]
-\centering
-\includegraphics{fig_lin.pdf}
-\caption{\(\frac x {10} + 5\) differenziert an der Stelle \(x=1\)}
-\label{fig:scaledsin}
-\end{figure}
+Sowohl bei der Exponentialfunktion als auch beim Sinus zeigt sich, dass die Verfahren im Ergebnis zu sehr ähnlichen Fehlerverläufen und Genauigkeiten gelangen.
+
 
 \subsection{Betriebsmittel}
 
