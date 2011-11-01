@@ -39,8 +39,8 @@ Wir haben unser Programm an mehreren Funktionen getestet.  Als erstes (siehe
 Abbildung \ref{fig:exp}) haben wir ein relativ gut-konditioniertes Problem
 gewählt, nämlich die Exponentialfunktion an der Stelle \(2\), hier erwarteten
 wir eine schnelle Konvergenz.
-Die Funktionen l=n wurde von 1 bis 5 gewählt.
-Zunächst fächern sich die Fehlerferläufe auf, da die Konvergenzordnung jeweils \(O(h^{(n+l)})\) beträgt , bis die Rechenfehler die Verfahrensfehler überwiegen. In diesen Fällen haben alle Funktionen ähnliche Fehler.
+Die Funktionen l=n wurden von 1 bis 5 gewählt.
+Zunächst fächern sich die Fehlerverläufe auf, da die Konvergenzordnung jeweils \(O(h^{(n+l)})\) beträgt, bis die Rechenfehler die Verfahrensfehler übersteigen. In diesen Fällen haben alle Funktionen ähnliche Fehler.
 Ab n=l=3 wird eine Genauigkeit von \(10^{-15}\) erreicht.
 
 \begin{figure}[!htb]
@@ -51,7 +51,7 @@ Ab n=l=3 wird eine Genauigkeit von \(10^{-15}\) erreicht.
 \end{figure}
 
 
-Im Falle einer Polynomiellen Funktion (Abbildungen \ref{fig:lin} und \ref{fig:poly6}) wird sofort eine Genauigkeit von \(10^{-15}\) erreicht, wenn die Funktion durch ein Polynom von ausreichendem Grad aproximiert wird.
+Im Falle einer polynomiellen Funktion (Abbildungen \ref{fig:lin} und \ref{fig:poly6}) wird sofort eine Genauigkeit von \(10^{-15}\) erreicht, wenn die Funktion durch ein Polynom von ausreichendem Grad approximiert wird.
 Dadurch kann im Falle der linearen Funktion der Rechenfehler gut beobachtet werden.
 
 
@@ -70,7 +70,7 @@ Dadurch kann im Falle der linearen Funktion der Rechenfehler gut beobachtet werd
 \end{figure}
 
 
-Zu guter letzt(Abbildung \ref{fig:scaledsin})
+Zu guter letzt (Abbildung \ref{fig:scaledsin})
 haben wir eine Funktion gesucht, bei der die Konvergenz erst mit sehr kleinen
 Schrittweiten einsetzt, entschieden haben wir uns für einen skalierten Sinus,
 nämlich \(x \mapsto 10^{-5}\, \sin(10^5\, x)\) an der Stelle \(1\).
